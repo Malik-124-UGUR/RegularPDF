@@ -1,2 +1,40 @@
 # RegularPDF
-RegularPDF is a simple and lightweight PDF editor that allows users to add text boxes and images to existing PDF documents. The project focuses on providing an easy-to-use interface for making quick annotations and visual additions without the complexity of full-featured PDF editing software.
+
+A simple and lightweight PDF editor focused on adding text and images to existing PDF documents.
+
+## Features
+
+* Add text boxes to PDF pages
+* Insert images into PDF documents
+* Clean and intuitive user interface
+* Lightweight and easy to use
+
+## Installation
+
+```bash
+git clone https://github.com/your-username/RegularPDF.git
+cd RegularPDF
+```
+
+## Usage
+
+1. Open a PDF document.
+2. Add text boxes where needed.
+3. Insert images into any page.
+4. Save the modified PDF.
+
+## Roadmap
+
+* [ ] Text formatting options
+* [ ] Move and resize elements
+* [ ] Page management tools
+* [ ] PDF export improvements
+* [ ] Additional annotation tools
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome.
+
+## License
+
+This project is licensed under the GNU License.
