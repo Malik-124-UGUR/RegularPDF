@@ -16,6 +16,7 @@ You can also start using it via this link: [RegularPDF](https://regularpdf.onren
 ```bash
 git clone https://github.com/your-username/RegularPDF.git
 cd RegularPDF
+npm install
 node server.js
 ```
 
