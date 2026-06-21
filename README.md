@@ -2,6 +2,8 @@
 
 A simple and lightweight PDF editor focused on adding text and images to existing PDF documents.
 
+You can also start using it via this link: [RegularPDF](https://regularpdf.onrender.com/)
+
 ## Features
 
 * Add text boxes to PDF pages
