@@ -1,0 +1,25 @@
+body {
+  margin:0;
+  font-family:Arial;
+}
+
+.toolbar {
+  padding:10px;
+  background:#eee;
+}
+
+.page-wrapper {
+  position:relative;
+  margin:20px auto;
+  width:fit-content;
+}
+
+.pdf-page {
+  display:block;
+}
+
+.draggable-image {
+  position:absolute;
+  cursor:move;
+  transform-origin:center center;
+}

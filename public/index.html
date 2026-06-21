@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çoklu Sayfa PDF Düzenleyici (Resim & Metin)</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 20px; 
+            background: #f4f6f9; 
+            color: #333;
+        }
+        .controls { 
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            z-index: 100;
+            padding: 20px; 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            width: 280px;
+            box-sizing: border-box;
+        }
+        .controls h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 18px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 10px;
+        }
+        #pdf-container { 
+            margin-left: 320px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 30px; 
+            align-items: center;
+        }
+        .page-wrapper { 
+            position: relative; 
+            border: 2px solid #cbd5e1; 
+            background: white; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); 
+            border-radius: 4px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .page-label { 
+            position: absolute; 
+            top: -25px; 
+            left: 0; 
+            font-weight: 600; 
+            color: #64748b; 
+            font-size: 13px;
+        }
+        button, input[type="file"] { 
+            width: 100%; 
+            margin-top: 8px; 
+            box-sizing: border-box; 
+        }
+        input[type="file"] {
+            font-size: 13px;
+            padding: 4px 0;
+        }
+        button { 
+            padding: 11px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            background-color: #f8fafc; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 6px; 
+            color: #475569;
+            transition: all 0.2s ease;
+        }
+        button:hover:not(:disabled) { 
+            background-color: #f1f5f9; 
+            border-color: #94a3b8;
+            color: #1e293b;
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        #text-btn { 
+            background-color: #3b82f6; 
+            color: white; 
+            border: none; 
+        }
+        #text-btn:hover:not(:disabled) { 
+            background-color: #2563eb; 
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+        }
+        #save-btn { 
+            background-color: #10b981; 
+            color: white; 
+            border: none; 
+            margin-top: 20px; 
+            font-size: 15px;
+        }
+        #save-btn:hover:not(:disabled) { 
+            background-color: #059669; 
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+        }
+        .info-box {
+            font-size: 12px; 
+            color: #64748b; 
+            margin-top: 12px;
+            background-color: #f8fafc;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+            line-height: 1.5;
+        }
+        .info-box strong {
+            color: #334155;
+        }
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <h3>PDF Düzenleyici</h3>
+        
+        <label for="pdf-upload">1. PDF Yükle:</label>
+        <input type="file" id="pdf-upload" accept="application/pdf">
+        
+        <label for="image-upload">2a. Resim Ekle:</label>
+        <input type="file" id="image-upload" accept="image/png, image/jpeg" multiple disabled>
+        
+        <label>2b. Metin Ekle:</label>
+        <button id="text-btn" disabled>Ekrana Metin Ekle</button>
+        
+        <div class="info-box">
+            • Öğe eklemeden önce işlem yapmak istediğiniz PDF sayfasına <strong>bir kez tıklayarak</strong> mavi çerçeveli hale getirin.<br><br>
+            • Eklenen metni düzenlemek için üzerine <strong>çift tıklayın</strong>.
+        </div>
+        
+        <button id="save-btn" disabled>3. PDF Olarak Kaydet</button>
+    </div>
+
+    <div id="pdf-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    
+    <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
