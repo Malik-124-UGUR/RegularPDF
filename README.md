@@ -14,6 +14,7 @@ A simple and lightweight PDF editor focused on adding text and images to existin
 ```bash
 git clone https://github.com/your-username/RegularPDF.git
 cd RegularPDF
+node server.js
 ```
 
 ## Usage
